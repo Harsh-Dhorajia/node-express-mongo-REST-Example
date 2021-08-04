@@ -4,15 +4,10 @@ const Note = require('../models/notes');
 exports.create = async (req, res) => {
 	// Validate request
 	try {
-		if (!req.body.content) {
-			return res.status(400).send({
-				message: "Note content can not be empty"
-			});
-		}
 		// Create a Note
 		const note = new Note({
 			title: req.body.title || "Untitled Note",
-			content: req.body.content
+			...req.body,
 		});
 		// Save Note in the database
 		const notes = await note.save();
