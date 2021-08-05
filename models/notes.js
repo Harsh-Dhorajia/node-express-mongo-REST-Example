@@ -8,6 +8,10 @@ const NoteSchema = mongoose.Schema({
         default: Date.now()
     },
     rating: Number,
+    userId: {
+        type: mongoose.Types.ObjectId,
+        ref: 'user',
+    }
 }, {
     timestamps: true
 });

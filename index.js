@@ -25,7 +25,7 @@ mongoose.connect(process.env.MONGO_URL, {
 });
 
 const router = express.Router();
-require('./routes/notes')(app);
+require('./routes/index')(app);
 
 app.get('/', function (req, res) {
     res.json({
